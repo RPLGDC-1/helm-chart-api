@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+{{- with .Values.ingress }}
+metadata:
+  name: {{ $.Release.Name }}-ingress
+  annotations:
+    # config http
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+
+spec:
+  ingressClassName: "traefik" # reverse proxy
+  rules:
+    - host: "api-duniabelanja.krobot.my.id"
+      http:
+        paths:
+          - path: "/api"
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $.Release.Name }}-svc
+                port:
+                  number: 80
+    - host: "admin-duniabelanja.krobot.my.id"
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $.Release.Name }}-svc
+                port:
+                  number: 80
+{{- end }}

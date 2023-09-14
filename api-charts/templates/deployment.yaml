@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+{{- with .Values.deployment }}
+metadata:
+  namespace: {{ $.Release.Namespace }}
+  name: {{ $.Release.Name }}-deployment
+  labels:
+    app: {{ $.Release.Name }}
+spec:
+  replicas: {{ .replicaCount }} # create 1 pod with 1 container inside
+  selector:
+    matchLabels:
+      app: {{ $.Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $.Release.Name }}
+    spec:
+      containers:
+        - name: {{ $.Release.Name }}-container
+          image: "{{ .containers.image.repository }}:{{ .containers.image.tag | default "latest" }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .containers.ports }}
+          volumeMounts:
+            - name: api-config
+              mountPath: /var/www/html/.env
+              subPath: .env
+              readOnly: true
+      volumes:
+        - name: api-config
+          configMap:
+            name: {{ $.Release.Name }}-configmap
+{{- end }}
