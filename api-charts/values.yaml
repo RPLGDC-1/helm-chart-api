@@ -2,9 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-nameOverride: "api"
-fullnameOverride: "api-chart"
-
 # Deployment Section
 deployment:
   namespace:
