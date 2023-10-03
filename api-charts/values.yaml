@@ -27,9 +27,10 @@ securityContext: {}
 
 # Service Section
 service:
-  port:
-  targetPort:
-  protocol:
+  ports:
+    port:
+    targetPort:
+    protocol:
 
 # Ingress Section
 ingress:
