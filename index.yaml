@@ -3,9 +3,9 @@ entries:
   api-charts:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-03T10:00:40.512586+07:00"
+    created: "2023-10-03T10:03:10.176692+07:00"
     description: A Helm chart for Kubernetes
-    digest: c768bab4951d2f2897f31508819c0772d5ffe6810457373e97ab236d02b755f6
+    digest: d772dbb58cd797f26a75fd53dc752e4f225006c2cc484c8e8747abd539a5a3c6
     name: api-charts
     type: application
     urls:
@@ -13,7 +13,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-03T10:00:40.512118+07:00"
+    created: "2023-10-03T10:03:10.175794+07:00"
     description: A Helm chart for Kubernetes
     digest: 0bf38b2a3b089bce92438eb9d6f928fa6192533b790fd959bcad59469a751ba1
     name: api-charts
@@ -21,4 +21,4 @@ entries:
     urls:
     - api-charts-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-03T10:00:40.510531+07:00"
+generated: "2023-10-03T10:03:10.169433+07:00"
