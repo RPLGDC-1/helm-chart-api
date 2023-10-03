@@ -9,8 +9,8 @@ spec:
   selector:
     app: {{ $.Release.Name }}
   ports:
-    - port: {{ .type.clusterIP.port }}
-      targetPort: {{ .type.clusterIP.targetPort }}
-      protocol: {{ .type.clusterIP.protocol }}
+    - port: {{ $.Values.service.ports.port }}
+      targetPort: {{ $.Values.service.ports.targetPort }}
+      protocol: {{ $.Values.service.ports.protocol }}
   type: ClusterIP
 {{- end }}
