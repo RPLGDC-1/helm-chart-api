@@ -5,7 +5,7 @@
 # Deployment Section
 deployment:
   namespace:
-  replicaCount:
+  replicaCount: 1
   containers:
     ports:
     image:
