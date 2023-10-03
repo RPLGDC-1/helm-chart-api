@@ -9,7 +9,7 @@ spec:
   selector:
     app: {{ $.Release.Name }}
   ports:
-    - port: {{ .Values.service.ports.port }}
+      port: {{ .Values.service.ports.port }}
       targetPort: {{ .Values.service.ports.targetPort }}
       protocol: {{ .Values.service.ports.protocol }}
   type: ClusterIP
