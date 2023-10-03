@@ -7,7 +7,7 @@ metadata:
   labels:
     app: {{ $.Release.Name }}
 spec:
-  replicas: {{ $.Values.deployment.replicaCount }} # create 1 pod with 1 container inside
+  replicas: {{ .Values.deployment.replicaCount }} # create 1 pod with 1 container inside
   selector:
     matchLabels:
       app: {{ $.Release.Name }}
@@ -18,10 +18,10 @@ spec:
     spec:
       containers:
         - name: {{ $.Release.Name }}-container
-          image: "{{ $.Values.deployment.containers.image.repository }}:{{ $.Values.deployment.containers.image.tag | default "latest" }}"
+          image: "{{ .Values.deployment.containers.image.repository }}:{{ .Values.deployment.containers.image.tag | default "latest" }}"
           imagePullPolicy: Always
           ports:
-            - containerPort: {{ $.Values.deployment.containers.ports }}
+            - containerPort: {{ .Values.deployment.containers.ports }}
           volumeMounts:
             - name: api-config
               mountPath: /var/www/html/.env
