@@ -10,7 +10,7 @@ spec:
     app: {{ $.Release.Name }}
   ports:
     - name: http
-      port: {{ .port }}
-      targetPort: {{ .targetPort }}
-      protocol: {{ .protocol }}
+      port: {{ .ports.port }}
+      targetPort: {{ .ports.targetPort }}
+      protocol: {{ .ports.protocol }}
 {{- end }}
